@@ -1,0 +1,90 @@
+{
+  "version": 3,
+  "targets": {
+    "net5.0": {
+      "Backend.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/Backend.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Backend.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Backend.Domain/1.0.0": {
+      "type": "project",
+      "path": "../Backend.Domain/Backend.Domain.csproj",
+      "msbuildProject": "../Backend.Domain/Backend.Domain.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net5.0": [
+      "Backend.Domain >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\andre\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\Proyectos\\NET\\PruebaDevZeros\\Backend\\Backend.Aplications\\Backend.Aplications.csproj",
+      "projectName": "Backend.Aplications",
+      "projectPath": "D:\\Proyectos\\NET\\PruebaDevZeros\\Backend\\Backend.Aplications\\Backend.Aplications.csproj",
+      "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
+      "outputPath": "D:\\Proyectos\\NET\\PruebaDevZeros\\Backend\\Backend.Aplications\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net5.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "projectReferences": {
+            "D:\\Proyectos\\NET\\PruebaDevZeros\\Backend\\Backend.Domain\\Backend.Domain.csproj": {
+              "projectPath": "D:\\Proyectos\\NET\\PruebaDevZeros\\Backend\\Backend.Domain\\Backend.Domain.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net5.0": {
+        "targetAlias": "net5.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.105\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

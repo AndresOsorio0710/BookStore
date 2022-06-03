@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "fef9eec7-a120-4de0-9682-758abda02903": {
+      "ProjectGuid": "fef9eec7-a120-4de0-9682-758abda02903",
+      "DisplayName": "Backend.Domain",
+      "ColorIndex": 0
+    },
+    "6b94ff92-0525-4255-a352-69fd088275c3": {
+      "ProjectGuid": "6b94ff92-0525-4255-a352-69fd088275c3",
+      "DisplayName": "Backend.Aplications",
+      "ColorIndex": 1
+    },
+    "8f13f445-526c-4176-b22e-537395623eb8": {
+      "ProjectGuid": "8f13f445-526c-4176-b22e-537395623eb8",
+      "DisplayName": "Backend.Infrastructure.Data",
+      "ColorIndex": 2
+    },
+    "f59e0da4-d061-449d-84ce-3cf3440d3dcf": {
+      "ProjectGuid": "f59e0da4-d061-449d-84ce-3cf3440d3dcf",
+      "DisplayName": "Backend.Infrastructure.API",
+      "ColorIndex": 3
+    }
+  },
+  "NextColorIndex": 4
+}

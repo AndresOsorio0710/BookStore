@@ -29,5 +29,17 @@ namespace Backend.Domain.Models
             this.UpdatedAt = this.CreatedAt;
             this.DeletedAt = this.CreatedAt;
         }
+
+        public User(Guid Id, string Name, string Email, string Password, string Role, DateTime CreatedAt, DateTime UpdatedAt, DateTime DeletedAt, Guid PeopleId)
+        {
+            this.Id = Id;
+            this.Name = Name;
+            this.Email = Email;
+            this.Password = Password;
+            this.Role = Role;
+            this.CreatedAt = CreatedAt;
+            this.UpdatedAt = UpdatedAt;
+            this.DeletedAt = DeletedAt;
+        }
     }
 }

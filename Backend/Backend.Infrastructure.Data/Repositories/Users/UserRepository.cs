@@ -82,14 +82,36 @@ namespace Backend.Infrastructure.Data.Repositories.Users
 
         public User Get(Guid entityID)
         {
-            return this.db.Users.Where(u => u.Id == entityID && u.CreatedAt == u.DeletedAt).FirstOrDefault();
+            return this.db.Users.Select(u => new User
+            {
+                Id = u.Id,
+                Name = u.Name,
+                Email = u.Email,
+                Password = "",
+                Role = u.Role,
+                CreatedAt = u.CreatedAt,
+                UpdatedAt = u.UpdatedAt,
+                DeletedAt = u.DeletedAt,
+                PeopleId = u.PeopleId
+            }).Where(u => u.Id == entityID && u.CreatedAt == u.DeletedAt).FirstOrDefault();
         }
 
         public async Task<object> Get(int page, int rows)
         {
             int totalRows = await this.db.Users.Where(u => u.CreatedAt == u.DeletedAt).CountAsync();
             int totalPages = Convert.ToInt32(Math.Ceiling(Convert.ToDecimal(totalRows)/rows));
-            var users = await this.db.Users.Where(u => u.CreatedAt == u.DeletedAt).OrderBy(u => u.Name).Skip((page - 1) * rows).Take(rows).ToListAsync();
+            var users = await this.db.Users.Select(u => new User
+            {
+                Id = u.Id,
+                Name = u.Name,
+                Email = u.Email,
+                Password = "",
+                Role = u.Role,
+                CreatedAt = u.CreatedAt,
+                UpdatedAt = u.UpdatedAt,
+                DeletedAt = u.DeletedAt,
+                PeopleId = u.PeopleId
+            }).Where(u => u.CreatedAt == u.DeletedAt).OrderBy(u => u.Name).Skip((page - 1) * rows).Take(rows).ToListAsync();
             var result = new { pages = totalPages, currentPage = page, users = users };
             return result;
         }
@@ -98,7 +120,18 @@ namespace Backend.Infrastructure.Data.Repositories.Users
         {
             int totalRows = await this.db.Users.Where(u => u.CreatedAt == u.DeletedAt && (u.Name.Contains(search) || u.Email.Contains(search) || u.Role.Contains(search))).CountAsync();
             int totalPages = Convert.ToInt32(Math.Ceiling(Convert.ToDecimal(totalRows)/rows));
-            var users = await this.db.Users.Where(u => u.CreatedAt == u.DeletedAt  && (u.Name.Contains(search) || u.Email.Contains(search) || u.Role.Contains(search))).OrderBy(u => u.Name).Skip((page - 1) * rows).Take(rows).ToListAsync();
+            var users = await this.db.Users.Select(u => new User
+            {
+                Id = u.Id,
+                Name = u.Name,
+                Email = u.Email,
+                Password = "",
+                Role = u.Role,
+                CreatedAt = u.CreatedAt,
+                UpdatedAt = u.UpdatedAt,
+                DeletedAt = u.DeletedAt,
+                PeopleId = u.PeopleId
+            }).Where(u => u.CreatedAt == u.DeletedAt  && (u.Name.Contains(search) || u.Email.Contains(search) || u.Role.Contains(search))).OrderBy(u => u.Name).Skip((page - 1) * rows).Take(rows).ToListAsync();
             var result = new { pages = totalPages, currentPage = page, users = users };
             return result;
         }
@@ -110,7 +143,18 @@ namespace Backend.Infrastructure.Data.Repositories.Users
 
         public List<User> GetAll()
         {
-            return this.db.Users.Where(u => u.CreatedAt == u.DeletedAt).ToList();
+            return this.db.Users.Select(u => new User
+            {
+                Id = u.Id,
+                Name = u.Name,
+                Email = u.Email,
+                Password = "",
+                Role = u.Role,
+                CreatedAt = u.CreatedAt,
+                UpdatedAt = u.UpdatedAt,
+                DeletedAt = u.DeletedAt,
+                PeopleId = u.PeopleId
+            }).Where(u => u.CreatedAt == u.DeletedAt).ToList();
         }
 
         public void SaveAllChanges()

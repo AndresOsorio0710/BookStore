@@ -11,45 +11,28 @@ namespace Backend.Infrastructure.API.Controllers
     public class ConnectController : ControllerBase
     {
         private SesionLogic sesionLogic;
+        private static Connectlogic connectlogic = new Connectlogic();
 
         [HttpGet("{id}")]
         public ActionResult Get(Guid id)
         {
-            if (id == null)
-            {
-                return Ok("Id required.");
-            }
-            sesionLogic = new SesionLogic();
-            if (sesionLogic.inSession(id))
-            {
-                return Ok("Ok.");
-            }
-            return Ok("No connect.");
+            return Ok(connectlogic.Get(id));
         }
 
         [HttpPost]
         [Route("login")]
         public ActionResult<Sesion> LogIn([FromBody] Connect connect)
         {
-            if (connect == null)
-            {
-                return Ok("Credentials required.");
-            }
-            sesionLogic = new SesionLogic();
-            var sesion = this.sesionLogic.LogIn(connect.user, connect.password);
+            var sesion = connectlogic.LogIn(connect);
             if (sesion == null)
-            {
                 return Ok("Invalid credentials.");
-            }
             return sesion;
         }
 
         [HttpDelete("logout/{id}")]
         public ActionResult LogOut(Guid id)
         {
-            sesionLogic = new SesionLogic();
-            sesionLogic.LogOut(id);
-            return Ok("Successful transaction.");
+            return Ok(connectlogic.LogOut(id));
         }
 
     }
